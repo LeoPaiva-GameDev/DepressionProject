@@ -26,7 +26,7 @@ public:
 	AInvisibleObjects();
 
 	UPROPERTY(EditAnywhere, Category = "Components", meta = (AllowPrivateAcsses = "true"))
-	UStaticMeshComponent* MyStaticMesh;
+	UStaticMeshComponent* InvisibleObjectMesh;
 
 	UFUNCTION()
 	UStaticMeshComponent* GetMesh();

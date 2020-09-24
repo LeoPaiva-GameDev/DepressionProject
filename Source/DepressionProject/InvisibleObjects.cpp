@@ -9,13 +9,15 @@ AInvisibleObjects::AInvisibleObjects()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	InvisibleObjectMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("InvisibleObjectMesh"));
+	InvisibleObjectMesh->SetupAttachment(RootComponent);
 }
 
 // Called when the game starts or when spawned
 void AInvisibleObjects::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
 }
 
 // Called every frame
@@ -27,7 +29,7 @@ void AInvisibleObjects::Tick(float DeltaTime)
 
 UStaticMeshComponent* AInvisibleObjects::GetMesh()
 {
-	return MyStaticMesh;
+	return InvisibleObjectMesh;
 }
 
 /*void AInvisibleObjects::SetCollisionAndMaterial()

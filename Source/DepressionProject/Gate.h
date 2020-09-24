@@ -13,15 +13,11 @@ class DEPRESSIONPROJECT_API AGate : public AActor
 	GENERATED_BODY()
 
 private:
-
-	UPROPERTY(EditAnywhere, Category = "Components", meta = (AllowPrivateAcsses = "true"))
+	UPROPERTY(VisibleAnywhere,  Category = "Components | Poles", meta = (AllowPrivateAcsses = "true"))
 	UStaticMeshComponent* FirstPole;
 
-	UPROPERTY(EditAnywhere, Category = "Components", meta = (AllowPrivateAcsses = "true"))
+	UPROPERTY(VisibleAnywhere,  Category = "Components | Poles", meta = (AllowPrivateAcsses = "true"))
 	UStaticMeshComponent* SecondPole;
-
-	UPROPERTY(EditAnywhere, Category = "Components", meta = (AllowPrivateAcsses = "true"))
-	UMaterialInterface* InvisibleMaterial;
 
 	UPROPERTY(VisibleAnywhere)
 	FVector FirstPoleLocation;
@@ -29,11 +25,16 @@ private:
 	UPROPERTY(VisibleAnywhere)
 	FVector SecondPoleLocation;
 
-	UPROPERTY(VisibleAnywhere)
-	AInvisibleObjects* InvisibleObject;
+	UPROPERTY(EditAnywhere)
+	TArray<AInvisibleObjects*> InvisibleObjects;
 
 	UPROPERTY(VisibleAnywhere)
-	UStaticMeshComponent* InvisibleMesh;
+	TArray<UStaticMeshComponent*> InvisibleMeshes;
+
+	UPROPERTY(VisibleAnywhere)
+	USceneComponent* SceneComponent;
+
+	void SetupInvisibleObjects(UMaterialInstanceDynamic* HideMaterial);
 	
 	
 public:	
@@ -41,6 +42,9 @@ public:
 	AGate();
 
 	bool bPassedThroughTheGate;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite,  Category = "Components")
+	UMaterialInterface* InvisibleMaterial;
 
 protected:
 	// Called when the game starts or when spawned
