@@ -1,6 +1,5 @@
 // Code by Leonardo Paiva
 
-#include "InvisibleObjects.h"
 #include "Gate.h"
 
 
@@ -45,9 +44,9 @@ void AGate::Tick(float DeltaTime)
 
 void AGate::SetupInvisibleObjects(UMaterialInstanceDynamic* HideMaterial)
 {
-	for(int32 i = 0; i <= InvisibleObjects.Num(); i++)
+	for(int32 i = 0; i < InvisibleMeshes.Num(); i++)
     	{
-    		InvisibleMeshes[i] = InvisibleObjects[i]->GetMesh();
+    		//InvisibleMeshes[i] = InvisibleObjects[i]->GetMesh();
     		InvisibleMeshes[i]->SetMaterial(0, HideMaterial);
     	}
 }

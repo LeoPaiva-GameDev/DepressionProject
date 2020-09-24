@@ -1,3 +1,4 @@
+  
 // Code by Leonardo Paiva
 
 #pragma once
@@ -12,7 +13,7 @@ class DEPRESSIONPROJECT_API AGate : public AActor
 {
 	GENERATED_BODY()
 
-private:
+	private:
 	UPROPERTY(VisibleAnywhere,  Category = "Components | Poles", meta = (AllowPrivateAcsses = "true"))
 	UStaticMeshComponent* FirstPole;
 
@@ -25,11 +26,11 @@ private:
 	UPROPERTY(VisibleAnywhere)
 	FVector SecondPoleLocation;
 
-	UPROPERTY(EditAnywhere)
-	TArray<AInvisibleObjects*> InvisibleObjects;
+	/*UPROPERTY(EditAnywhere)
+	TArray<AInvisibleObjects*> InvisibleObjects;*/
 
-	UPROPERTY(VisibleAnywhere)
-	TArray<UStaticMeshComponent*> InvisibleMeshes;
+	UPROPERTY(EditAnywhere)
+	TArray<UStaticMesh*> InvisibleMeshes;
 
 	UPROPERTY(VisibleAnywhere)
 	USceneComponent* SceneComponent;
@@ -37,20 +38,20 @@ private:
 	void SetupInvisibleObjects(UMaterialInstanceDynamic* HideMaterial);
 	
 	
-public:	
+	public:	
 	// Sets default values for this actor's properties
 	AGate();
 
 	bool bPassedThroughTheGate;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite,  Category = "Components")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite,  Category = "Components")
 	UMaterialInterface* InvisibleMaterial;
 
-protected:
+	protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+	public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
