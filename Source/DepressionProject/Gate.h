@@ -29,7 +29,7 @@ class DEPRESSIONPROJECT_API AGate : public AActor
 	/*UPROPERTY(EditAnywhere)
 	TArray<AInvisibleObjects*> InvisibleObjects;*/
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Catergoty = "InvisibleMeshes")
 	TArray<UStaticMesh*> InvisibleMeshes;
 
 	UPROPERTY(VisibleAnywhere)
@@ -44,7 +44,7 @@ class DEPRESSIONPROJECT_API AGate : public AActor
 
 	bool bPassedThroughTheGate;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite,  Category = "Components")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite,  Category = "Components | Material")
 	UMaterialInterface* InvisibleMaterial;
 
 	protected:
